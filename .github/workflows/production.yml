@@ -71,7 +71,7 @@ jobs:
 
       # Run Trivy scan
       - name: Scan the Docker image
-        uses: aquasecurity/trivy-action@v0.30.0  # Use a stable version to avoid rate-limiting issues
+        uses: aquasecurity/trivy-action@master  # Use a stable version to avoid rate-limiting issues
         with:
           image-ref: 'saideepak9676/fastapi:latest'
           format: 'table'
