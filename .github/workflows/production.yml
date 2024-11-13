@@ -57,7 +57,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: saisrinivas194/homework8:latest  # Tag to use for DockerHub repository
+          tags: saideepak9676/fastapi:latest  # Tag to use for DockerHub repository
           platforms: linux/amd64  # Define specific platforms if needed
           
       - name: Scan the Docker image
