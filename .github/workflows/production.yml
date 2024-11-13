@@ -63,7 +63,7 @@ jobs:
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master  # Use the latest version for Trivy
         with:
-          image-ref: 'saisrinivas194/homework8:latest'
+          image-ref: 'saideepak9676/fastapi:latest'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
