@@ -60,8 +60,18 @@ jobs:
           tags: saideepak9676/fastapi:latest  # Tag to use for DockerHub repository
           platforms: linux/amd64  # Define specific platforms if needed
           
+      # Cache Trivy vulnerability database to avoid repeated downloads
+      - name: Cache Trivy vulnerability DB
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/trivy
+          key: ${{ runner.os }}-trivy-db-${{ hashFiles('**/Dockerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-trivy-db-
+
+      # Run Trivy scan
       - name: Scan the Docker image
-        uses: aquasecurity/trivy-action@master  # Use the latest version for Trivy
+        uses: aquasecurity/trivy-action@v0.30.0  # Use a stable version to avoid rate-limiting issues
         with:
           image-ref: 'saideepak9676/fastapi:latest'
           format: 'table'
